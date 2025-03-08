@@ -80,9 +80,9 @@
 
 
 
- #                                    Question 5:  Frequency Count:
+ #                                    Question 6:  Frequency Count:
 # Given an array, count the frequency of each element.
-arr = [3, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 4, 5, 3]
+# arr = [3, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 4, 5, 3]
 # frequency = {}
 # for i in range(len(arr)):
 #     if arr[i] in frequency:
@@ -90,13 +90,79 @@ arr = [3, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 4, 5, 3]
 #     else : frequency[arr[i]] = 1
 # print(frequency)
 
+# Solution 2 Using Nested Loop
+# frequency = {}
+# for num in arr:
+#     if num in frequency:
+#         frequency[num] += 1  # If number already exists, increase count
+#     else:
+#         frequency[num] = 1  # If number appears for the first time, set count to 1
+# print(frequency)
+
+#                            Question 7: Remove Duplicates from an Array:
+#6.	Return an array with duplicates removed
+# solution 1 
+# arr = [3, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 4, 5, 3]
+# unique_arr = []
+# for i in range(len(arr)):
+#     is_unique = True
+#     for j in range(i+1,len(arr)):
+#        if arr[i] == arr[j]:
+#             is_unique = False
+#             break
+#     if is_unique:
+#         unique_arr.append(arr[i])
+# print(unique_arr)
+
+# solution 2
+# arr = [3, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 4, 5, 3]
+# unique_arr = []
+# seen = set()
+# for i in range(len(arr)):
+#     if arr[i] not in seen:
+#         unique_arr.append(arr[i])
+#         seen.add(arr[i])
+# print(unique_arr)
+
+# solution 3 this is slower in comparison with solution 2
+# arr = [3, 1, 2, 3, 4, 1, 2, 3, 5, 1, 2, 4, 5, 3]
+# unique_arr = []
+# for i in range(len(arr)):  
+#     if arr[i] not in unique_arr:  
+#         unique_arr.append(arr[i])
+# print(unique_arr)
+
+#                                       Question 8: Reverse a String:
+#  Reverse the characters in a given string.
+
+# str = "Hello World"
+# str = str[::-1]
+# print(str)
+
+# str = "Hello World"
+# reverse = ""
+# for i in range(len(str)-1,-1,-1):
+#     reverse = reverse + str[i]
+# print(reverse)
+
+# text = "Hello World"
+# reverse = "".join(reversed(text)) 
+# print(reverse)
+
+ #                                                    Question 9: Check Palindrome (String):
+# 	Write a function to check if a string is a palindrome
+# str = 'malayalam'
+# str = 'himalya'
+
+# reverce = ''.join(reversed(str))
+# if str == reverce:
+#     print("String is palindrome")
+
 # Solution 2 
-
-frequency = {}
-for i in range(len(arr)):
-    for j in range(i+1,len(arr)):
-        if arr[i] == arr[j]:
-            frequency[arr[i]] +=1
-        else : frequency == 1 
-print(frequency)
-
+# rev = ""
+# for i in range(len(str) - 1 , - 1 , -1):
+#      rev += str[i]
+# if str == rev:
+#      print("String is palindrome")
+# else:
+#      print("String is not palindrome")  
