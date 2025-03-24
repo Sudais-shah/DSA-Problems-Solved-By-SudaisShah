@@ -166,3 +166,195 @@
 #      print("String is palindrome")
 # else:
 #      print("String is not palindrome")  
+
+#                                                       Question 10: First Non-Repeating Character:
+#	Identify the first character in a string that doesn’t repeat.
+# text = "swiss"
+# arr = []
+# for i in range(len(text)):
+#     if text.count(text[i]) == 1:
+#         arr.append(text[i])
+#         break
+# print(arr)
+
+#   Solution 2 
+# text = "swiss"
+# for char in text:
+#     if text.index(char) == text.rindex(char):  
+#         print(char)
+#         break
+
+# Solution 3
+# text = "swiss"
+# char_count = {}
+
+# Step 1: Count occurrences
+# for char in text:
+#     char_count[char] = char_count.get(char, 0) + 1
+
+# Step 2: Find the first non-repeating character
+# text = "swiss"
+# for char in text:
+#     if char_count[char] == 1:
+#         print(char)
+#         break
+
+                                                    #    Question 11: Count Vowels in a String:
+# 11.	Count the number of vowels in a string.
+# str = "Beautiful day outside"
+# vowels = 'aeiou' 
+# count = 0        
+# for i in str.lower():    # convert to lower so both cases are counted
+#     if i in vowels:      # if character is a vowel then add 1
+#        count = count + 1      
+# print('count of vowels:',count)             # print the count of vowels
+
+#Solution 2 
+# str = "Beautiful day outside"
+# vowels = 'aeiou' 
+# count = sum(1 for i in str.lower() if i in vowels) # Solving using list comprehension
+# print('count of vowels:',count) 
+
+# solutio 3
+# str = "Beautiful day outside"
+# vowels = 'aeiou'
+# count = len(list(filter(lambda x: x in vowels, str.lower()))) # filter() keeps only vowels, and len() counts them.
+# print(count)
+
+ #                                                      Question 12:          Anagram Check:
+# Write a function to check if two strings are anagrams.
+# str1 = "listen"
+# str2 = "silent"
+#Soltuion 1 
+# if sorted(str1) == sorted(str2): # if sorted version of both strings are equal
+#     print("Strings are anagrams.")
+# else:
+#     print("Strings are not anagrams.")  
+
+# Solution 2
+# str1 = "listen"
+# str2 = "silent"
+
+# is_anagram = True
+
+# if len(str1) != len(str2): # Check if the lengths are different
+#     is_anagram = False
+
+# freq = {}
+
+# for char in str1:  
+#     freq[char] = freq.get(char, 0) + 1 # Count characters in str1
+
+# for char in str2:    
+#     if char in freq:
+#         freq[char] -= 1 # Subtract character counts using str2
+#     else:
+#         is_anagram = False  # Extra character found in str2
+
+# for value in freq.values():# Ensure all values in freq are zero
+#     if value != 0:
+#         is_anagram = False
+#         break  # No need to check further
+
+# if is_anagram:
+#     print("Strings are anagrams.")
+# else:    
+#     print("Strings are not anagrams.")
+
+#                                **************               Searching & Sorting                    **************
+
+#                                             Question 13:         Linear Search:
+#  Implement linear search to find an element in an array.
+# arr = [4, 8, 15, 23, 42] 
+# target = 15 # lets find 15 
+# # Solution 
+# for i in range(len(arr)):
+#     if arr[i] == target:
+#         print('Element found at index:',i)
+#         break
+# else:    # the else block will run after loop is completed to avoid multiple print statements
+#      print("Element not found")
+        
+
+
+#                                             Question 14:  Binary Search:
+# /********** Understanding Binary Search **********/
+# Binary search is a search algorithm that finds the position of a target value within a sorted array.
+# Requires a Sorted Array 
+# Unlike linear search, binary search only works on sorted arrays. 
+# Instead of checking each element one by one, binary search:
+# Starts in the middle of the array.
+# If the target is smaller, it searches the left half.
+# If the target is greater, it searches the right half.
+# Repeats until the element is found or the range becomes empty.
+# Efficient – Binary search is much faster than linear search for large arrays.
+
+#	Implement binary search on a sorted array.
+# Solution 1
+# arr = [4, 8, 15, 23, 42]  # Binary search requires a sorted array
+# target = 23
+# lowest_number = 0 
+# highest_number = len(arr) - 1
+
+# for i in range(low, high + 1):
+#     mid = (low + high) // 2
+#     if arr[mid] == target:
+#         print('Element found at index:',mid)
+#         break
+#     elif arr[mid] < target:
+#         low = mid + 1
+#     else:
+#         high = mid - 1
+# else:
+#     print("Element not found")
+
+# Solution 2 
+# arr = [4, 8, 15, 23, 42]  # Binary search requires a sorted array
+# target = 23
+# lowest_number = 0 
+# highest_number = len(arr) - 1
+
+# while  lowest_number <= highest_number:
+#     mid = (lowest_number + highest_number) // 2
+#     if arr[mid] == target:
+#         print('Element found at index:',mid)
+#         break
+#     elif arr[mid] < target:
+#         lowest_number = mid + 1 
+#     elif arr[mid] > target:
+#         highest_number = mid - 1
+# else: 
+#     print("Element not found")
+
+
+#                                             Question 15:  Bubble Sort:
+# Sort an array using bubble sort.
+# What is Bubble Sort?
+# Bubble Sort is one of the simplest sorting algorithms that works by repeatedly
+# swapping adjacent elements if they are in the wrong order. It’s called “Bubble”
+# Sort because large numbers slowly “bubble up” to the end of the array, just like bubbles floating to the surface of water.
+
+arr = [29, 10, 14, 37, 13, 16]
+# Solution 1
+for i in range(len(arr)-1): # puter loop
+# it works without -i as well however it will be more efficient with -i becuase after each iteration the largest number will be at the end
+     for j in range(len(arr) - 1 - i): # inner loop
+        if arr[j] > arr[j+1]:                   # condition to swap
+           arr[j], arr[j+1] = arr[j+1], arr[j]  # swap numbers
+print(arr)
+
+
+#                                             Question 16:   Insertion Sort:
+#	Sort an array using insertion sort.
+
+#                                             Question 17:  Selection Sort:
+#	Sort an array using selection sort.
+
+#                                             Question 18:  Merge Two Sorted Arrays:
+#	Merge two sorted arrays into one sorted array.
+
+#                                             Question 19:  Find Intersection of Two Arrays:
+#	Identify common elements between two arrays.
+
+#                                             Question 20:  Find Union of Two Arrays:
+# Combine two arrays, removing duplicates.
